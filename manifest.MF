@@ -1,3 +1,1 @@
-Manifest-Version: 1.0
-Created-By: <JDK Version> (Oracle Corporation)
 Main-Class: tuto.DateDriver
