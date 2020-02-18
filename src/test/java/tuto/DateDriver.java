@@ -15,6 +15,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import junit.framework.Assert;
+
 public class DateDriver {
 	
 	public static void main(String args[]) {
@@ -39,7 +42,9 @@ public class DateDriver {
 	
 	@Before
 	public void setUp() throws Exception{
-		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver/chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver/chromedriver.exe");
+		//driver = new ChromeDriver();
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		writeFile = new WriteExcelFile();
 		readFile = new ReadExcelFile();
@@ -62,6 +67,7 @@ public class DateDriver {
 			readFile.readExel(filepath, "Hoja1");
 			driver.get("http://automationpractice.com");
 			System.out.println(readFile.getLastRowNumb(filepath,"Hoja1"));
+			assertTrue(true);
 		}
 	}
 	
